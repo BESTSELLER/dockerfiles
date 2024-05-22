@@ -5,7 +5,7 @@ FROM maven:${MAVEN_VERSION}-eclipse-temurin-${JAVA_VERSION}-alpine AS build
 WORKDIR /app
 
 ADD . .
-RUN mvn package -DskipTests -DoutputDirectory=./build
+RUN mvn package -DskipTests
 
 
 FROM eclipse-temurin:${JAVA_VERSION}-jre-alpine AS run
@@ -15,7 +15,7 @@ RUN chown -R nobody:nobody /opt
 # RUN mkdir /app && chown -R appuser:appgroup /app
 
 # ADD --chown=nobody:nobody ./docker-entrypoint.sh /app
-COPY --chown=nobody:nobody --from=build ./build/ser*.jar /app/app.jar
+COPY --chown=nobody:nobody --from=build ./target/*.jar /app/app.jar
 ADD --chown=nobody:nobody https://dtdg.co/latest-java-tracer /app/dd-java-agent.jar
 
 # 65534:65534
