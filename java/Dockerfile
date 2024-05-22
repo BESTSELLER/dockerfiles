@@ -1,6 +1,7 @@
 ARG JAVA_VERSION=21
+ARG MAVEN_VERSION=3.9.6
 
-FROM maven:3.9.6-eclipse-temurin-${JAVA_VERSION}-alpine AS build
+FROM maven:${MAVEN_VERSION}-eclipse-temurin-${JAVA_VERSION}-alpine AS build
 WORKDIR /app
 
 ADD . .
