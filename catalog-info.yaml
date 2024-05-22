@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dockerfiles
+  description: A place to save our generic Dockerfiles
+  annotations:
+    github.com/project-slug: BESTSELLER/dockerfiles
+spec:
+  type: service
+  lifecycle: experimental
+  owner: engineering-services
