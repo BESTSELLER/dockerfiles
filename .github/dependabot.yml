@@ -6,6 +6,10 @@
 version: 2
 updates:
   - package-ecosystem: "docker" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "/go" # Location of package manifests
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker" # See documentation for possible values
+    directory: "/java" # Location of package manifests
     schedule:
       interval: "monthly"
